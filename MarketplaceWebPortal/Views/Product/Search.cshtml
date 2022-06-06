@@ -1,0 +1,11 @@
+﻿@model SearchViewModel
+<div class="container">
+    <form asp-controller="Product" asp-action="Search" mthod="post">
+        <select class="form-select" asp-for="Type">
+          <option selected>Electrical</option>
+          <option>Mechanical</option>
+        </select>
+        <input asp-for="Keyword" placeholder="Search Keyword" class="form-control">
+        <button class="btn btn-primary">Search</button>
+    </form>
+</div>

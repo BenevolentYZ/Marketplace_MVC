@@ -1,0 +1,98 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Product[]
+
+
+    <div class="container p-3">
+    <table class="table table-bordered table-striped" style="width:100%">
+            <tr>
+                <th>
+                    Name
+			    </th>
+                <th>
+                    @Model[0].Name
+                </th>
+                <th>
+                    @Model[1].Name
+                </th>
+                <th>
+                    @Model[2].Name
+                </th>
+		    </tr>
+            <tr>
+                <th>
+                    Manufacture
+			    </th>
+                <th>
+                    @Model[0].Manufacture
+                </th>
+                <th>
+                    @Model[1].Manufacture
+                </th>
+               <th>
+                    @Model[2].Manufacture
+                </th>
+            </tr>
+             <tr>
+                <th>
+                    Type
+			    </th>
+                <th>
+                    @Model[0].Type
+                </th>
+                <th>
+                    @Model[1].Type
+                </th>
+                <th>
+                    @Model[2].Type
+                </th>
+               
+            </tr>
+              <tr>
+                <th>
+                    Model Year
+			    </th>
+                <th>
+                    @Model[0].ModelYear
+                </th>
+                <th>
+                    @Model[1].ModelYear
+                </th>
+                <th>
+                    @Model[2].ModelYear
+                </th>
+                
+            </tr>
+             <tr>
+                <th>
+                    Weight
+			    </th>
+                <th>
+                    @Model[0].Weight
+                </th>
+                <th>
+                    @Model[1].Weight
+                </th>
+                <th>
+                    @Model[2].Weight
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    Price
+			    </th>
+                <th>
+                    @Model[0].Price
+                </th>
+                <th>
+                    @Model[1].Price
+                </th>
+                <th>
+                    @Model[2].Price
+                </th>
+            </tr>
+    </table>
+    </div>
