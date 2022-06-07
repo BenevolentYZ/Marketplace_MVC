@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "f1+5Us2sONg2FpitvhZbJEW4Mb5ly+LvCeNj0EGP9Jc=",
+  "Hash": "kAnfTSLbuFV2MOQQIQReFarkrkms4I2L28xLZ1+EptQ=",
   "Source": "MarketplaceWebPortal",
   "BasePath": "_content/MarketplaceWebPortal",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "E:\\VS\\MarketplaceWebPortal\\MarketplaceWebPortal\\wwwroot\\Files\\file.jpg",
+      "SourceId": "MarketplaceWebPortal",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\VS\\MarketplaceWebPortal\\MarketplaceWebPortal\\wwwroot\\",
+      "BasePath": "_content/MarketplaceWebPortal",
+      "RelativePath": "Files/file.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\file.jpg"
     },
     {
       "Identity": "E:\\VS\\MarketplaceWebPortal\\MarketplaceWebPortal\\wwwroot\\js\\site.js",
