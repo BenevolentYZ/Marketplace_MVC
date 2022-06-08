@@ -41,41 +41,59 @@ namespace MarketplaceWebPortal.Controllers
             return View(results);
         }
 
-        public IActionResult UploadImage()
+        public IActionResult Detail(int? id)
         {
-            SingleFileModel model = new SingleFileModel();
-            return View(model);
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var product = _context.Products.FirstOrDefault(u => u.Id == id);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
         }
 
         [HttpPost]
-        public IActionResult Upload(SingleFileModel model)
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Product product)
         {
-           
-            //if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-               
-                model.IsResponse = true;
+
 
                 string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Files");
-                
+
                 //create folder if not exist
                 if (!Directory.Exists(path))
                     Directory.CreateDirectory(path);
 
                 //get file extension
-                FileInfo fileInfo = new FileInfo(model.File.FileName);
-                string fileName = model.FileName + fileInfo.Extension;
-                
+                FileInfo fileInfo = new FileInfo(product.File.FileName);
+                string fileName = product.FileName + fileInfo.Extension;
+                Console.WriteLine(fileName);
                 string fileNameWithPath = Path.Combine(path, fileName);
-                
+
                 using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
                 {
-                    model.File.CopyTo(stream);
+                    product.File.CopyTo(stream);
                 }
-                model.IsSuccess = true;
-                TempData["Success"] = "File upload successfully";
+                product.FileName = Path.Combine("/Files/", fileName);
+
+                _context.Products.Add(product);
+                _context.SaveChanges();
+                TempData["success"] = "Product created successfully";
             }
-            return View("UploadImage", model);
+
+
+            return RedirectToAction("Index");
         }
     }
 }

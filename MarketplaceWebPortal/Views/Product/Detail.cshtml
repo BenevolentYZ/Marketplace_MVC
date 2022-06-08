@@ -1,0 +1,55 @@
+﻿@model Product
+
+  
+    <div class="container p-3">
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Name
+			    </th>
+                <th>
+                    Manufacture
+			    </th>
+                <th>
+                    Type
+			    </th>
+                <th>
+                    Model Year
+			    </th>
+                <th>
+                    Weight
+			    </th>
+                <th>
+                    Price
+			    </th>
+		    </tr>
+	    </thead>
+        <tbody>
+                <tr>
+                    <td width="15%">
+                        @Model.Name
+				    </td>
+                    <td width="15%">
+                        @Model.Manufacture
+				    </td>
+                    <td width="15%">
+                        @Model.Type
+				    </td>
+                    <td width="15%">
+                        @Model.ModelYear
+				    </td>
+                    <td width="15%">
+                        @Model.Weight
+				    </td>
+                    <td width="15%">
+                        @Model.Price
+				    </td>
+			    </tr>
+   
+        </tbody>
+    </table>
+    <img src="@Model.FileName" alt="product image" class="img-thumbnail">
+    <br />
+    <a asp-action="Index" asp-controller="Product">Back to Product List</a>
+    </div>

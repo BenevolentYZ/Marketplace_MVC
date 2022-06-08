@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MarketplaceWebPortal.Models
 {
@@ -25,5 +26,12 @@ namespace MarketplaceWebPortal.Models
 
         [Required]
         public int Price { get; set; }
+
+        [Required(ErrorMessage = "Please enter file name")]
+        public string FileName { get; set; }
+
+        [NotMapped]
+        [Required(ErrorMessage = "Please select file")]
+        public IFormFile File { get; set; }
     }
 }

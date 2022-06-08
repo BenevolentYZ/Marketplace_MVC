@@ -8,6 +8,18 @@
 
     
     <div class="container p-3">
+        <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Category List</h2>
+		</div>
+        <div class="col-6 text-end">
+            <a asp-controller="Product" asp-action="Create" class="btn btn-primary">
+               <i class="bi bi-plus-circle"></i> &nbsp; Create New Product
+			</a>
+		</div>
+	</div>
+    <br /><br />
+
     <table class="table table-bordered table-striped" style="width:100%">
         <thead>
             <tr>
@@ -22,12 +34,6 @@
 			    </th>
                 <th>
                     Model Year
-			    </th>
-                <th>
-                    Weight
-			    </th>
-                <th>
-                    Price
 			    </th>
                 <th>
 
@@ -50,15 +56,9 @@
                     <td width="15%">
                         @obj.ModelYear
 				    </td>
-                    <td width="15%">
-                        @obj.Weight
-				    </td>
-                    <td width="15%">
-                        @obj.Price
-				    </td>
+
                     <td width="10%">
-                        <label>Compare</label>
-                        <input type="checkbox">
+                        <a asp-controller="Product" asp-action="Detail" asp-route-id="@obj.Id">Detail</a>
                     </td>
 			    </tr>
             }
