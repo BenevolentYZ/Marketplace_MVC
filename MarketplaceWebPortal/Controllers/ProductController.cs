@@ -8,11 +8,9 @@ namespace MarketplaceWebPortal.Controllers
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private List<Product> _compareList;
         public ProductController(ApplicationDbContext context)
         {
             _context = context;
-            _compareList = new List<Product>();
         }
 
         public IActionResult Index()
@@ -35,11 +33,20 @@ namespace MarketplaceWebPortal.Controllers
             return View("SearchResult", results);
         }
 
-        public IActionResult Compare()
+
+        public IActionResult Compare([FromQuery] string list)
         {
-            Product[] results = _context.Products.Where(u => u.Type == "Electrical").ToArray();
+            List<int> idList = list.Split(",").Select(Int32.Parse).ToList();
+            Product[] results = _context.Products.Where(u => idList.Contains(u.Id)).ToArray();
             return View(results);
         }
+
+        //[HttpPost]
+        //public IActionResult Compare()
+        //{
+        //    Console.WriteLine("Compare function called");
+        //    return RedirectToAction("CompareResult", ProductList);
+        //}
 
         public IActionResult Detail(int? id)
         {

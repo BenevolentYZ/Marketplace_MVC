@@ -10,7 +10,7 @@
     <div class="container p-3">
         <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">Category List</h2>
+            <h2 class="text-primary">Product List</h2>
 		</div>
         <div class="col-6 text-end">
             <a asp-controller="Product" asp-action="Create" class="btn btn-primary">
@@ -38,6 +38,7 @@
                 <th>
 
                 </th>
+                <th></th>
 		    </tr>
 	    </thead>
         <tbody>
@@ -60,9 +61,49 @@
                     <td width="10%">
                         <a asp-controller="Product" asp-action="Detail" asp-route-id="@obj.Id">Detail</a>
                     </td>
+                    <td>
+                        <input type="checkbox" id="checkbox_@obj.Id"></input>
+                        <label for="checkbox_@obj.Id">Add To Compare</label>
+                    </td>
 			    </tr>
             }
         </tbody>
 
     </table>
+    <a class="btn btn-success" onclick="CompareProducts()">Compare Products</a>
     </div>
+
+    <script>
+        var CompareProducts = function() {
+            var checkedProducts = [];
+
+
+            $("input[type=checkbox]").each(function(index, value) { 
+                if ($(value).is(":checked", true)) {
+                    var checkedId = $(value).attr("id").split('_')[1];
+                    checkedProducts.push(checkedId);
+                }
+            })
+            if (checkedProducts.length > 3 || checkedProducts.length < 2) {
+                alert("Please choose 2-3 products to compare");
+            } else { 
+                var commaSeparatedIds = checkedProducts.toString();
+            //    $.ajax({
+            //        url: "/Product/Compare",
+            //        type: "GET",
+            //        data: {
+            //            ProductList: commaSeparatedIds
+            //        },
+            //        success: function(response) { 
+            //            if (response == true) { 
+            //            }
+            //        },
+            //        error: function() {
+            //            alert("fail")
+            //        }
+            //    })
+                window.location.href = "/Product/Compare/?list=" + commaSeparatedIds;
+
+            }
+        }
+    </script>
