@@ -48,7 +48,7 @@ namespace MarketplaceWebPortal.Controllers
                 await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal);
 
             }
-            return View();
+            return RedirectToAction("Index", "Product");
         }
         // Get /User/SignUp
         public IActionResult SignUp()

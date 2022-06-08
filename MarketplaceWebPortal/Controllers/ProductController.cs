@@ -97,10 +97,9 @@ namespace MarketplaceWebPortal.Controllers
                 _context.Products.Add(product);
                 _context.SaveChanges();
                 TempData["success"] = "Product created successfully";
+                return RedirectToAction("Index");
             }
-
-
-            return RedirectToAction("Index");
+            return View(product);
         }
     }
 }
