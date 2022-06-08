@@ -18,9 +18,12 @@
                 <th>
                     @Model[1].Name
                 </th>
-                <th>
-                    @Model[2].Name
-                </th>
+                @if (Model.Length > 2)
+                {
+                    <th>
+                        @Model[2].Name
+                    </th>
+                }
 		    </tr>
             <tr>
                 <th>
@@ -32,9 +35,12 @@
                 <th>
                     @Model[1].Manufacture
                 </th>
-               <th>
-                    @Model[2].Manufacture
-                </th>
+                 @if (Model.Length > 2)
+                {
+                    <th>
+                        @Model[2].Manufacture
+                    </th>
+                }
             </tr>
              <tr>
                 <th>
@@ -46,9 +52,12 @@
                 <th>
                     @Model[1].Type
                 </th>
-                <th>
-                    @Model[2].Type
-                </th>
+                  @if (Model.Length > 2)
+                {
+                    <th>
+                        @Model[2].Type
+                    </th>
+                }
                
             </tr>
               <tr>
@@ -61,9 +70,12 @@
                 <th>
                     @Model[1].ModelYear
                 </th>
-                <th>
-                    @Model[2].ModelYear
-                </th>
+                  @if (Model.Length > 2)
+                {
+                    <th>
+                        @Model[2].ModelYear
+                    </th>
+                }
                 
             </tr>
              <tr>
@@ -76,9 +88,12 @@
                 <th>
                     @Model[1].Weight
                 </th>
-                <th>
-                    @Model[2].Weight
-                </th>
+                  @if (Model.Length > 2)
+                {
+                    <th>
+                        @Model[2].Weight
+                    </th>
+                }
             </tr>
             <tr>
                 <th>
@@ -90,9 +105,12 @@
                 <th>
                     @Model[1].Price
                 </th>
-                <th>
-                    @Model[2].Price
-                </th>
+                  @if (Model.Length > 2)
+                {
+                    <th>
+                        @Model[2].Price
+                    </th>
+                }
             </tr>
     </table>
     </div>
